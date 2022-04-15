@@ -22,7 +22,9 @@
  * Define Global Variables
  * 
 */
-
+const ul = document.querySelector('#navbar_list');
+const fragment = document.createDocumentFragment();
+const sections = document.querySelectorAll('section');
 
 /**
  * End Global Variables
@@ -30,8 +32,22 @@
  * 
 */
 
+// building the nav bar function
+const buildNav = (outer, data) => {
+    const fragment = document.createDocumentFragment();
+    data.forEach((info) => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#' + info.getAttribute('id');
+        a.textContent = info.getAttribute('data-nav');
+        li.appendChild(a);
+        fragment.appendChild(li);
+    });
+    outer.appendChild(fragment);
+}
 
-
+// Adding class active to section when near top function
+const checkActive()
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -39,7 +55,7 @@
 */
 
 // build the nav
-
+buildNav(ul, sections);
 
 // Add class 'active' to section when near top of viewport
 
