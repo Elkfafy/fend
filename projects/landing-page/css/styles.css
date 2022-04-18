@@ -73,7 +73,15 @@ section {
 .navbar__menu li {
     display: inline-block;
 }
-
+@media only screen and (max-width: 35em){
+    
+    .navbar__menu li {
+        display: block;
+    }
+    .navbar__menu li a {
+        text-align: center;
+    }
+}
 .navbar__menu .menu__link {
     display: block;
     padding: 1em;
@@ -85,6 +93,13 @@ section {
 .navbar__menu .menu__link:hover {
     background: #333;
     color: #fff;
+    transition: ease 0.3s all;
+}
+
+.active {
+    
+    background: #333;
+    color: #fff !important;
     transition: ease 0.3s all;
 }
 
@@ -122,6 +137,7 @@ section {
         padding: 4em;
     }
 }
+
 
 section:nth-of-type(even) .landing__container {
     margin-right: 0;
@@ -193,17 +209,17 @@ section:nth-of-type(3n + 1) .landing__container::after {
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
-section.your-active-class {
+section.animate-active {
     background: rgb(0, 0, 0);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
-section.your-active-class .landing__container::before {
+section.animate-active .landing__container::before {
     opacity: 1;
     animation: rotate 4s linear 0s infinite forwards;
 }
 
-section.your-active-class .landing__container::after {
+section.animate-active .landing__container::after {
     opacity: 1;
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
